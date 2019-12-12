@@ -1,0 +1,25 @@
+name: pull request on bundle update
+description: bundle update and pull request
+branding:
+  icon: 'git-pull-request'
+  color: 'green'
+inputs:
+  github_token:
+    description: github token
+    required: true
+  git_user_name:
+    description: user name who git push bundle update commit
+    required: true
+  git_email:
+    description: email of user who git push bundle update commit
+    required: true
+  reviewers:
+    description: assigned user as a revierer
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GITHUB_TOKEN: ${{ inputs.github_token }}
+    GIT_USER_NAME: ${{ inputs.git_user_name }}
+    GIT_EMAIL: ${{ inputs.git_email }}
