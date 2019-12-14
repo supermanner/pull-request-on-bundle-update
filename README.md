@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: pull request on bundle update
-        uses: supermanner/pull-request-on-bundle-update@master
+        uses: supermanner/pull-request-on-bundle-update@v1.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_user_name: example_name
