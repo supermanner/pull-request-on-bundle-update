@@ -17,6 +17,10 @@ if [[ -z "$GIT_EMAIL" ]]; then
   exit 1
 fi
 
+if [[ -z "$BUNDLER_VERSION" ]]; then
+  echo "Bundle version not set. install latest bundler."
+fi
+
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
 git checkout master
 BRANCH_NAME="bundle_update/$(date "+%Y%m%d_%H%M%S")"
@@ -24,7 +28,7 @@ git checkout -b ${BRANCH_NAME}
 
 export PATH="/usr/local/bundle/bin:$PATH"
 
-gem install bundler
+gem install bundler -v "${BUNDLER_VERSION}"
 gem install bundler-diff
 
 bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
