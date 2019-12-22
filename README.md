@@ -29,6 +29,7 @@ jobs:
           git_user_name: example_name
           git_email: test@example.com
           reviewers: supermanner,hoge,fuga
+          bundler_version: 2.0.1
 ```
 
 ## Demo

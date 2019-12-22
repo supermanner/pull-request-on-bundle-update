@@ -24,7 +24,12 @@ git checkout -b ${BRANCH_NAME}
 
 export PATH="/usr/local/bundle/bin:$PATH"
 
-gem install bundler
+if [[ -n "$INPUT_BUNDLER_VERSION" ]]; then
+  gem install bundler -v "$INPUT_BUNDLER_VERSION"
+else
+  gem install bundler
+fi
+
 gem install bundler-diff
 
 bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
