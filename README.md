@@ -23,13 +23,13 @@ jobs:
         with:
           fetch-depth: 1
       - name: pull request on bundle update
-        uses: supermanner/pull-request-on-bundle-update@v1.0.0
+        uses: supermanner/pull-request-on-bundle-update@v1.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_user_name: example_name
           git_email: test@example.com
-          reviewers: supermanner,hoge,fuga
-          bundler_version: 2.0.1
+          reviewers: supermanner,hoge,fuga // optional
+          bundler_version: 2.0.1 // optional
 ```
 
 ## Demo
