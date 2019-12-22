@@ -16,6 +16,9 @@ inputs:
   reviewers:
     description: assigned user as a revierer
     required: false
+  bundler_version:
+    description: set bundler version
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
