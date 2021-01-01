@@ -26,9 +26,3 @@ runs:
     GITHUB_TOKEN: ${{ inputs.github_token }}
     GIT_USER_NAME: ${{ inputs.git_user_name }}
     GIT_EMAIL: ${{ inputs.git_email }}
-#    uses: woodcock3/jekyll4-deploy-gh-pages@master
- #       env:
-  #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-   #       GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
-    #      GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
-
