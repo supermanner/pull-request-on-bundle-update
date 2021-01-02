@@ -24,8 +24,8 @@ git checkout -b ${BRANCH_NAME}
 
 export PATH="/usr/local/bundle/bin:$PATH"
 
-if [[ -n "$INPUT_BUNDLER_VERSION" ]]; then
-  gem install bundler -v "$INPUT_BUNDLER_VERSION"
+if [[ -n "$BUNDLER_VERSION" ]]; then
+  gem install bundler -v "$BUNDLER_VERSION"
 else
   gem install bundler
 fi
