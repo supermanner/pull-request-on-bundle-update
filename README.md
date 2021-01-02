@@ -28,8 +28,35 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_user_name: example_name
           git_email: test@example.com
-          reviewers: supermanner,hoge,fuga // optional
-          bundler_version: 2.0.1 // optional
+          reviewers: supermanner,hoge,fuga ## optional
+          bundler_version: 2.0.1 ## optional
+```
+### Or to update Gemfile.lock when Gemfile changed
+
+```
+name: pull request on bundle update
+on:
+  push:
+    paths:
+      - 'Gemfile' 
+  
+  
+jobs:
+  bundle-update:
+    name: bundle update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: pull request on bundle update
+        uses: woodcock3/pull-request-on-bundle-update@v1.0.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git_user_name: ${{ secrets.HUB_USER }}
+          git_email: ${{ secrets.HUB_EMAIL }}
+          bundler_version: 2.1.4 ## optional
 ```
 
 ## Demo
