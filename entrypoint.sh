@@ -17,7 +17,7 @@ if [[ -z "$GIT_EMAIL" ]]; then
   exit 1
 fi
 
-git remote set-url origin "https://github.com/$GITHUB_REPOSITORY.git"
+git remote set-url origin "https://github.com/$GIT_USER_NAME/$GITHUB_REPOSITORY.git"
 git checkout master
 BRANCH_NAME="bundle_update/$(date "+%Y%m%d_%H%M%S")"
 git checkout -b ${BRANCH_NAME}
