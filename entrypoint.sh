@@ -44,9 +44,9 @@ fi
 
 export GITHUB_USER="$GITHUB_ACTOR"
 
+git config --global --add safe.directory /github/workspace
 git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_EMAIL
-git config --global --add safe.directory /github/workspace
 
 hub add Gemfile Gemfile.lock
 hub commit -m "bundle update && bundle update --ruby"
