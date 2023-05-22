@@ -17,15 +17,15 @@ if [[ -z "$GIT_EMAIL" ]]; then
   exit 1
 fi
 
-git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+git remote set-url origin "https://github.com/$GIT_USER_NAME/$GITHUB_REPOSITORY.git"
 git checkout master
 BRANCH_NAME="bundle_update/$(date "+%Y%m%d_%H%M%S")"
 git checkout -b ${BRANCH_NAME}
 
 export PATH="/usr/local/bundle/bin:$PATH"
 
-if [[ -n "$INPUT_BUNDLER_VERSION" ]]; then
-  gem install bundler -v "$INPUT_BUNDLER_VERSION"
+if [[ -n "$BUNDLER_VERSION" ]]; then
+  gem install bundler -v "$BUNDLER_VERSION"
 else
   gem install bundler
 fi
@@ -44,6 +44,7 @@ fi
 
 export GITHUB_USER="$GITHUB_ACTOR"
 
+git config --global --add safe.directory /github/workspace
 git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_EMAIL
 
